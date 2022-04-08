@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     db_password: str = None
     db_db: str = None
     db_instance: str = None
-    db_url: str = '3.238.242.230'
+    db_url: str = 'localhost:33061'
     sendgrid_api_key: str = None
     client_hostname: str = 'tattoo.com'
 

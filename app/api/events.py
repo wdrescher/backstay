@@ -2,7 +2,7 @@ import logging
 
 from fastapi import HTTPException
 from starlette.requests import Request
-from starlette.responses import UJSONResponse
+from starlette.responses import JSONResponse
 
 from api.settings import settings
 
@@ -18,7 +18,7 @@ async def on_http_error(request: Request, exc: HTTPException):
         # SentryAsgiMiddleware captures all exceptions, this is to keep track of
         # handled exceptions.
         capture_exception(exc)
-    return UJSONResponse({'detail': exc.detail}, status_code=exc.status_code)
+    return JSONResponse({'detail': exc.detail}, status_code=exc.status_code)
 
 
 optional_services = []
