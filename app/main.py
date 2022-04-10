@@ -1,5 +1,4 @@
 import logging
-import docs
 import os
 import time
 from fastapi import FastAPI, HTTPException
@@ -33,14 +32,18 @@ if "gunicorn" in os.environ.get("SERVER_SOFTWARE", ""):
 
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title='Tattoo API', description=docs.desc)
+app = FastAPI(title='Backstay', description='Provide api services for abacus')
 
+origins = [
+    f"http://{settings.client_hostname}", 
+    f"https://{settings.client_hostname}"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*", origins],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
