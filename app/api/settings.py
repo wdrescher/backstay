@@ -14,7 +14,9 @@ class Settings(BaseSettings):
     db_instance: str = None
     db_url: str = '3.238.242.230'
     sendgrid_api_key: str = None
-    client_hostname: str = 'd19dvwqqljdpvl.cloudfront.net'
-
+    client_hostname: str = 'localhost:4200'
+    no_reply_email: str = 'crewteamatvcu@gmail.com'
+    app_name: str = "Backstay"
+    sendgrid_password_reset_key = "d-e8585c4ff13c46f9b699de1d890c001f"
 
 settings = Settings()

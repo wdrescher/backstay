@@ -14,10 +14,10 @@ startup_msg_fmt = """
 
 
 async def on_http_error(request: Request, exc: HTTPException):
-    if exc.status_code >= 500:
+    # if exc.status_code >= 500:
         # SentryAsgiMiddleware captures all exceptions, this is to keep track of
         # handled exceptions.
-        capture_exception(exc)
+        # capture_exception(exc)
     return JSONResponse({'detail': exc.detail}, status_code=exc.status_code)
 
 

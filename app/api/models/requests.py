@@ -24,3 +24,6 @@ class ChangePasswordRequest(BaseModel):
 class UpdateUserRequest(BaseModel):
     first_name: str
     last_name: str
+
+class ResetEmailRequest(BaseModel):
+    email: str

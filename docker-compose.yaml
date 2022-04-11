@@ -29,6 +29,7 @@ services:
     restart: always
     ports:
       - "80:80"
+      - "8000:8000"
     environment:
       - APP_ENVIRONMENT=dev
       - CLIENT_HOSTNAME=localhost:4200
@@ -39,6 +40,8 @@ services:
       - DB_PASSWORD=password
       - DB_DB=db
       - DB_URL=database:3306
+      # READ FROM LOCAL ENV
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
     volumes:
       - './app:/app'
     command: ["/start-reload.sh"]

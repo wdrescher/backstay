@@ -29,7 +29,8 @@ async def get_user_from_token(token: str):
                     email, 
                     phone_number, 
                     first_name, 
-                    last_name
+                    last_name, 
+                    role
                 FROM profile 
                 WHERE token_id=:token
             """,
