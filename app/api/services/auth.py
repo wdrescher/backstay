@@ -23,7 +23,8 @@ async def create_user(request: SignupRequest):
     async with database.connection(): 
         result = await database.execute(
             query="""
-                CALL create_user(:token, :email, :password, :first_name, :last_name)
+                INSERT INTO token (bearer, expiration_date) VALUES (:token, CURDATE());
+                INSERT INTO profile (email, first_name, last_name, password, token_id) VALUES (:email, :first_name, :last_name, :password, :token);            
             """, 
             values={
                 "token": bearer_token, 

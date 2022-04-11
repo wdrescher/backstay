@@ -7,9 +7,9 @@ CREATE TABLE token (
 );
 
 CREATE TABLE profile (
-    profile_id int PRIMARY KEY,
+    profile_id int PRIMARY KEY AUTO_INCREMENT,
     email varchar(100) UNIQUE NOT NULL, 
-    password varchar(30) not NULL,
+    password varchar(100) not NULL,
     phone_number varchar(10), 
     first_name varchar(50), 
     last_name varchar(50), 

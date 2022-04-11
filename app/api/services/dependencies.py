@@ -29,11 +29,8 @@ async def get_user_from_token(token: str):
                     email, 
                     phone_number, 
                     first_name, 
-                    last_name, 
-                    artist.profile_id IS NOT NULL as is_artist
+                    last_name
                 FROM profile 
-                LEFT JOIN artist 
-                ON artist.profile_id = profile.profile_id
                 WHERE token_id=:token
             """,
             values={'token': token}
